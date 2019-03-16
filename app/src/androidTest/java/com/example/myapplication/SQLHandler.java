@@ -74,4 +74,59 @@ public class SQLHandler extends SQLiteOpenHelper {
     }
 
 
+    //add a new purchase to the database
+    public void addPurchase(Purchase purchase) {
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_PURCHASEID, purchase.getID());
+        values.put(COLUMN_PURCHASETRIPID, purchase.getTripID());
+        values.put(COLUMN_PURCHASEITEMID, purchase.getItemID());
+        values.put(COLUMN_PURCHASEQUANTITY, purchase.getQuantity());
+        values.put(COLUMN_PURCHASEDATE, purchase.getDate());
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert(TABLE_PURCHASE,null, values);
+        db.close();
+    }
+
+    //delete a purchase from the database
+    public void deletePurchase(String purchaseID) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_PURCHASE + " WHERE " + COLUMN_PURCHASEID + "=\"" + purchaseID + "\";");
+    }
+
+    //add a new item to the database
+    public void addItem(Item item) {
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_ITEMID, item.getID());
+        values.put(COLUMN_ITEMCO2, item.getCO2());
+        values.put(COLUMN_ITEMPRICE, item.getPrice());
+        values.put(COLUMN_ITEMNAME, item.getName());
+        values.put(COLUMN_ITEMTYPEID, item.getTypeID());
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert(TABLE_ITEM, null, values);
+        db.close();
+    }
+
+    //delete an item from the database
+    public void deleteItem(String itemID) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_ITEM + " WHERE " + COLUMN_ITEMID + "=\"" + itemID + "\";");
+    }
+
+    //add a new type to the database
+    public void addType(Type type) {
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_TYPEID, type.getID());
+        values.put(COLUMN_TYPENAME, type.getType());
+        values.put(COLUMN_TYPEMESSAGE, type.getMessage());
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert(TABLE_TYPE, null, values);
+        db.close();
+    }
+
+    //delete a type from the database
+    public void deleteType(String typeID) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_TYPE + " WHERE " + COLUMN_TYPEID + "=\"" + typeID + "\";");
+    }
+
 }
