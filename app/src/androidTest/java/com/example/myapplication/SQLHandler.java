@@ -155,7 +155,7 @@ public class SQLHandler extends SQLiteOpenHelper {
         String query = "SELECT " + COLUMN_ITEMNAME + " FROM " + TABLE_ITEM + " WHERE " + COLUMN_ITEMID + "=\"" + item.getID();
         return query;
     }
-
+//SELECT COLUMN_ITEMNAME FROM TABLE_ITEM WHERE COLUMN_ITEMID = item.getID();
     public String getItemCO2(Item item){
         String query = "SELECT " + COLUMN_ITEMCO2 + " FROM " + TABLE_ITEM + " WHERE " + COLUMN_ITEMID + "=\"" + item.getID();
         return query;
