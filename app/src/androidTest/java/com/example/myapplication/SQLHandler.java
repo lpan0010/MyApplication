@@ -28,7 +28,7 @@ public class SQLHandler extends SQLiteOpenHelper {
     public static final String TABLE_TYPE= "ITEM_TYPE";
     public static final String COLUMN_TYPEID = "TypeID";
     public static final String COLUMN_TYPENAME = "name";
-    public static final String COLUMN_TYPEMESSAGE = "message"; //hi
+    public static final String COLUMN_TYPEMESSAGE = "message"; 
 
 
     public SQLHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
