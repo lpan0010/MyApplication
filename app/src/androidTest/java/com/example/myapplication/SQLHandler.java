@@ -39,7 +39,7 @@ public class SQLHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String ITEM_create = "CREATE TABLE " + TABLE_ITEM + "(" +
                 COLUMN_ITEMID + " VARCHAR PRIMARY KEY, " +
-                COLUMN_ITEMCO2 + " VARCHAR, " +
+                COLUMN_ITEMCO2 + " INTEGER, " +
                 COLUMN_ITEMPRICE + " INTEGER, " +
                 COLUMN_ITEMNAME + " VARCHAR, " +
                 COLUMN_ITEMTYPEID + " VARCHAR, " +
@@ -61,8 +61,14 @@ public class SQLHandler extends SQLiteOpenHelper {
         db.execSQL(ITEM_create);
         db.execSQL(PURCHASE_create);
         db.execSQL(TYPE_create);
+
+        db.execSQL("INSERT INTO " + TABLE_ITEM + "(COLUMN_ITEMID, COLUMN_ITEMCO2, COLUMN_ITEMPRICE, COLUMN_ITEMNAME, COLUMN_ITEMTYPEID) VALUES ('9300675016902', 20, 2.30, 'Water Bottle', (SELECT COLUMN_TYPEID FROM TABLE_TYPE WHERE ) )");
         db.close();
     }
+    //water bottle - 9300675016902
+    //red bull sugarfree - 90162800
+    //red bull - 90162602
+    //coles bag - 9348372157405
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -72,6 +78,7 @@ public class SQLHandler extends SQLiteOpenHelper {
 
         onCreate(db);
     }
+
 
 
     //add a new purchase to the database
@@ -129,4 +136,13 @@ public class SQLHandler extends SQLiteOpenHelper {
         db.execSQL("DELETE FROM " + TABLE_TYPE + " WHERE " + COLUMN_TYPEID + "=\"" + typeID + "\";");
     }
 
+    public String getItemName(Item item){
+        String query = "SELECT " + COLUMN_ITEMNAME + " FROM " + TABLE_ITEM + " WHERE " + COLUMN_ITEMID + "=\"" + item.getID();
+        return query;
+    }
+
+    public String getItemCO2(Item item){
+        String query = "SELECT " + COLUMN_ITEMCO2 + " FROM " + TABLE_ITEM + " WHERE " + COLUMN_ITEMID + "=\"" + item.getID();
+        return query;
+    }
 }
