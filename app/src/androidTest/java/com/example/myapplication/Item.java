@@ -2,13 +2,17 @@ package com.example.myapplication;
 
 public class Item {
 
-    private int ID;
+    private String ID;
+    private int CO2;
+    private int Price;
+    private String Name;
+    private String typeID;
 
-    public int getID() {
+    public String getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 
@@ -36,17 +40,13 @@ public class Item {
         Name = name;
     }
 
-    public int getTypeID() {
+    public String getTypeID() {
         return typeID;
     }
 
-    public void setTypeID(int typeID) {
+    public void setTypeID(String typeID) {
         this.typeID = typeID;
     }
 
-    private int CO2;
-    private int Price;
-    private String Name;
-    private int typeID;
 
 }

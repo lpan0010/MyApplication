@@ -1,8 +1,10 @@
 package com.example.myapplication;
 
-public class ItemType {
+public class Type {
 
     private int ID;
+    private String Type;
+    private String Message; //message to optimise the carbon emission
 
     public int getID() {
         return ID;
@@ -28,6 +30,5 @@ public class ItemType {
         Message = message;
     }
 
-    private String Type;
-    private String Message; //message to optimise the carbon emission
+
 }

@@ -2,29 +2,33 @@ package com.example.myapplication;
 
 public class Purchase {
 
-    private int ID;
+    private String ID;
+    private String tripID;
+    private String itemID;
+    private int quantity;
+    private String date;
 
-    public int getID() {
+    public String getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 
-    public int getTripID() {
+    public String getTripID() {
         return tripID;
     }
 
-    public void setTripID(int tripID) {
+    public void setTripID(String tripID) {
         this.tripID = tripID;
     }
 
-    public int getItemID() {
+    public String getItemID() {
         return itemID;
     }
 
-    public void setItemID(int itemID) {
+    public void setItemID(String itemID) {
         this.itemID = itemID;
     }
 
@@ -44,8 +48,9 @@ public class Purchase {
         this.date = date;
     }
 
-    private int tripID;
-    private int itemID;
-    private int quantity;
-    private String date;
+
+
+
+
+
 }
